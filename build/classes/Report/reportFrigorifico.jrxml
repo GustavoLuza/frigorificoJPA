@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9568eda4-b90e-43b0-9a10-e27668022743">
+	<property name="ireport.zoom" value="3.1384283767210035"/>
+	<property name="ireport.x" value="144"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     frigorifico.`ID` AS frigorifico_ID,
+     frigorifico.`CNPJ` AS frigorifico_CNPJ,
+     frigorifico.`NOME` AS frigorifico_NOME,
+     frigorifico.`RESPONSAVEL` AS frigorifico_RESPONSAVEL,
+     frigorifico.`TELEFONE` AS frigorifico_TELEFONE
+FROM
+     `frigorifico` frigorifico]]>
+	</queryString>
+	<field name="frigorifico_ID" class="java.lang.Integer"/>
+	<field name="frigorifico_CNPJ" class="java.lang.String"/>
+	<field name="frigorifico_NOME" class="java.lang.String"/>
+	<field name="frigorifico_RESPONSAVEL" class="java.lang.String"/>
+	<field name="frigorifico_TELEFONE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="5983af41-1fb8-4cb8-9fd7-65f9bbd2b814"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE FRIGORIFICOS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="468" y="20" width="87" height="20" uuid="0fea8113-4a28-4096-8abc-3d40d64089ae"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="36" height="50" uuid="faac9766-f82e-4b1d-93cd-d13d8e93632b"/>
+				<imageExpression><![CDATA["C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\Projeto frigorifico JPA\\FrigorificoJPA\\src\\Imagem\\Sem título.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="50" width="13" height="20" uuid="eb5924da-e138-44ab-ae52-8541612ac687"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="49" width="555" height="1" uuid="d55362c5-7870-459a-bcf0-5b9912c188da"/>
+			</line>
+			<staticText>
+				<reportElement x="87" y="49" width="95" height="20" uuid="64fccf2f-4885-4f72-8dd1-d7fbb2659fb4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FRIGORIFICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="182" y="49" width="94" height="20" uuid="07aef8b4-4781-4f8e-8315-84b6ae883038"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="50" width="100" height="20" uuid="15594b43-a9b2-41c4-b3e8-1121fb768c7b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="49" width="100" height="20" uuid="fee4e159-8ea4-47d9-b052-4f204dbebb2c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSÁVEL]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="2" width="555" height="1" uuid="51c3b786-5ea6-49b7-8b7c-761fd65ab152"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="3" width="77" height="20" uuid="c54228cf-72a7-4160-850d-6ea853eb31c4"/>
+				<textFieldExpression><![CDATA[$F{frigorifico_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="2" width="95" height="20" uuid="df2ebf6b-5aa1-4f8a-b221-9a2913275071"/>
+				<textFieldExpression><![CDATA[$F{frigorifico_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="3" width="94" height="20" uuid="b30287d5-b7b8-4c4d-8b46-434afe22f592"/>
+				<textFieldExpression><![CDATA[$F{frigorifico_CNPJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="3" width="118" height="20" uuid="4592bdf7-0b7e-4575-ae5a-14cfc9fa62e0"/>
+				<textFieldExpression><![CDATA[$F{frigorifico_TELEFONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="3" width="139" height="20" uuid="8de1c4be-2d33-4b12-834c-7f7bf1468e2c"/>
+				<textFieldExpression><![CDATA[$F{frigorifico_RESPONSAVEL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="34" width="555" height="20" uuid="b65d70fc-dee6-4d36-aa31-81d424d8a211"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="fa6ff6f5-b591-46c4-8336-24df19352ce4"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

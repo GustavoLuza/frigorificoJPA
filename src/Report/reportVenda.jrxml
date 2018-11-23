@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="10dd2f4f-b88b-42cc-b44a-db0b3da02c12">
+	<property name="ireport.zoom" value="1.6500000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     venda.`ID` AS venda_ID,
+     venda.`DATA_VENDA` AS venda_DATA_VENDA,
+     venda.`VALOR_TOTAL` AS venda_VALOR_TOTAL,
+     venda.`ID_CLIENTE` AS venda_ID_CLIENTE,
+     venda.`ID_PRODUTO` AS venda_ID_PRODUTO,
+     produto.`ID` AS produto_ID,
+     produto.`LOTE` AS produto_LOTE,
+     produto.`NOME` AS produto_NOME,
+     cliente.`ID` AS cliente_ID,
+     cliente.`CNPJ` AS cliente_CNPJ,
+     cliente.`CONTATO` AS cliente_CONTATO,
+     cliente.`ENDERECO` AS cliente_ENDERECO,
+     cliente.`NOME` AS cliente_NOME,
+     cliente.`TELEFONE` AS cliente_TELEFONE,
+     cliente_A.`ID` AS cliente_A_ID,
+     cliente_A.`NOME` AS cliente_A_NOME,
+     cliente_A.`CNPJ` AS cliente_A_CNPJ
+FROM
+     `produto` produto INNER JOIN `venda` venda ON produto.`ID` = venda.`ID_PRODUTO`
+     INNER JOIN `cliente` cliente_A ON venda.`ID_CLIENTE` = cliente_A.`ID`,
+     `cliente` cliente]]>
+	</queryString>
+	<field name="venda_ID" class="java.lang.Integer"/>
+	<field name="venda_DATA_VENDA" class="java.sql.Date"/>
+	<field name="venda_VALOR_TOTAL" class="java.lang.Double"/>
+	<field name="produto_ID" class="java.lang.Integer"/>
+	<field name="produto_LOTE" class="java.lang.String"/>
+	<field name="produto_NOME" class="java.lang.String"/>
+	<field name="cliente_ID" class="java.lang.Integer"/>
+	<field name="cliente_CNPJ" class="java.lang.String"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<group name="produto_NOME">
+		<groupExpression><![CDATA[$F{produto_NOME}]]></groupExpression>
+	</group>
+	<group name="cliente_NOME">
+		<groupExpression><![CDATA[$F{cliente_NOME}]]></groupExpression>
+	</group>
+	<group name="groupProduto">
+		<groupExpression><![CDATA[$F{produto_NOME}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="203" y="6" width="100" height="20" uuid="8f41e97a-9889-4ed3-8f04-0b898a1bb675"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{produto_ID}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="425" y="6" width="102" height="20" uuid="b57fcb61-0275-4832-a935-bf1e277f3932"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{produto_NOME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="318" y="6" width="107" height="20" uuid="c9eecf15-a846-427a-baf8-b5ad2f6d65fd"/>
+					<textElement textAlignment="Center">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOME DO PRODUTO: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="103" y="6" width="100" height="20" uuid="a1fadb7c-6524-4acc-9457-eb95ca52724f"/>
+					<textElement textAlignment="Center">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID DO PRODUTO:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="0" width="555" height="1" uuid="b1752e1f-8fcd-49a9-8875-200d97689d35"/>
+				</line>
+				<line>
+					<reportElement x="3" y="49" width="552" height="1" uuid="e25a12cf-be73-4b71-bbb3-b380eda04c20"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="groupCliente">
+		<groupExpression><![CDATA[$F{cliente_NOME}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="77" y="14" width="64" height="20" uuid="e8b2ac5c-32df-416f-a398-ab42dd2e609c"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{cliente_ID}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="18" y="14" width="59" height="20" uuid="eb6f9cb4-6b36-46fe-856d-21e337644530"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID CLIENTE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="182" y="14" width="97" height="20" uuid="86378996-109a-400b-834f-802b2da31637"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[NOME DO CLIENTE:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="282" y="14" width="84" height="20" uuid="1fc808ec-dc87-4ff7-b83f-7a0fb8e6c4e4"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{cliente_NOME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="393" y="14" width="32" height="20" uuid="57d8ca18-3ac4-47dd-80b6-4fb1651858a2"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CNPJ:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="425" y="14" width="101" height="20" uuid="ec1d79b3-d5b6-486b-8801-d60d14b8b156"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{cliente_CNPJ}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="555" height="20" uuid="b237c95f-8613-4223-9be3-7b273a6afebc"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE VENDAS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="455" y="27" width="100" height="12" uuid="decb01ad-ae06-4df5-8299-a906734252d8"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="4" width="37" height="48" uuid="20c6a6c3-02fb-4e81-994a-d8b2c00dae94"/>
+				<imageExpression><![CDATA["C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\Projeto frigorifico JPA\\FrigorificoJPA\\src\\Imagem\\Sem título.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="116" y="0" width="66" height="20" uuid="bbb394bb-ff46-47f9-acc1-babdfb06fbae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{venda_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="119" height="20" uuid="afcb9c1b-b68a-48ae-8250-4694a33d6ab4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{venda_DATA_VENDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="0" width="133" height="20" uuid="e56367dc-1228-4a8c-8dcb-c2592ac08421"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{venda_VALOR_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="404" y="0" width="80" height="20" uuid="8e714239-9fd4-4ce3-94d3-d6c566b0576c"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR TOTAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="0" width="89" height="20" uuid="840e2192-39f9-44f2-8ea5-58a2c09438d5"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA DA VENDA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="53" height="20" uuid="1d10f4b9-6716-47c3-97f7-f6c42a2e8488"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID VENDA:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="906f4553-405f-496e-a7f7-bdcf71a7d3e3"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="17" width="552" height="20" uuid="696ddaae-0d30-46c8-a0cb-fc4fac91c6b6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="16" width="555" height="1" uuid="56df66c1-0708-482e-87f0-b33f6eb96b71"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

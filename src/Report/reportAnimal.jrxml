@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8637b677-cc3b-4b93-aef1-fc9b05e4af2b">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     animal.`ID` AS animal_ID,
+     animal.`ESPECIE` AS animal_ESPECIE,
+     animal.`PESO` AS animal_PESO,
+     animal.`RACA` AS animal_RACA,
+     animal.`SEXO` AS animal_SEXO,
+     animal.`ID_FAZENDA` AS animal_ID_FAZENDA,
+     fazenda.`ID` AS fazenda_ID,
+     fazenda.`CNPJ` AS fazenda_CNPJ,
+     fazenda.`NOME` AS fazenda_NOME
+FROM
+     `fazenda` fazenda INNER JOIN `animal` animal ON fazenda.`ID` = animal.`ID_FAZENDA`]]>
+	</queryString>
+	<field name="animal_ID" class="java.lang.Integer"/>
+	<field name="animal_ESPECIE" class="java.lang.Integer"/>
+	<field name="animal_PESO" class="java.lang.Double"/>
+	<field name="animal_RACA" class="java.lang.String"/>
+	<field name="animal_SEXO" class="java.lang.String"/>
+	<field name="animal_ID_FAZENDA" class="java.lang.Integer"/>
+	<field name="fazenda_ID" class="java.lang.Integer"/>
+	<field name="fazenda_CNPJ" class="java.lang.String"/>
+	<field name="fazenda_NOME" class="java.lang.String"/>
+	<group name="fazenda_NOME">
+		<groupExpression><![CDATA[$F{fazenda_NOME}]]></groupExpression>
+	</group>
+	<group name="groupFazenda">
+		<groupExpression><![CDATA[$F{fazenda_NOME}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<staticText>
+					<reportElement x="0" y="0" width="65" height="20" uuid="65d580bb-750a-47e3-8e93-8a3b44bd86e6"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID FAZENDA:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="65" y="0" width="100" height="20" uuid="ade45511-940d-4c59-a25e-ca837ef8e2d8"/>
+					<textFieldExpression><![CDATA[$F{fazenda_ID}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="205" y="0" width="53" height="20" uuid="8268273c-e75c-4348-86ba-0165de5272f4"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[FAZENDA:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="258" y="0" width="100" height="20" uuid="8a63b8ec-f0fd-41eb-aa01-87a464240e30"/>
+					<textFieldExpression><![CDATA[$F{fazenda_NOME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="430" y="0" width="35" height="20" uuid="f8fd6dd8-3b0b-4bb7-96ff-4d091c7a1107"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CNPJ:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="465" y="0" width="100" height="20" uuid="60ebb291-89e6-4da2-b054-2debf8b0ea48"/>
+					<textFieldExpression><![CDATA[$F{fazenda_CNPJ}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="29" width="555" height="1" uuid="217cf0a4-8b70-4dbf-a9bb-ef45b2e066d4"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="ecb2e21c-e3ab-4939-8387-85dc96efa516"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE ANIMAIS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="481" y="20" width="100" height="20" uuid="b35730ec-acf5-42e6-af48-a566395d778b"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="-2" width="33" height="42" uuid="8c1d0a81-b809-4806-92b5-43e21db47348"/>
+				<imageExpression><![CDATA["C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\Projeto frigorifico JPA\\FrigorificoJPA\\src\\Imagem\\Sem título.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="40" width="555" height="1" uuid="8d676ba3-651f-4af9-be99-e280cf5a3456"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="55" height="20" uuid="b443964b-46b3-4e12-b781-cb1ff74fef16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID ANIMAL: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="0" width="67" height="20" uuid="5b2e39d4-165e-499b-bb5c-261a6a695536"/>
+				<textFieldExpression><![CDATA[$F{animal_ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="122" y="0" width="48" height="20" uuid="aef7a1a5-e2e4-45ef-b203-5198937612cd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPÉCIE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="20" uuid="9bf5677f-3d55-41a4-bd41-95e75dec5bd1"/>
+				<textFieldExpression><![CDATA[$F{animal_ESPECIE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="0" width="34" height="20" uuid="f2eba7e8-6017-417d-8802-2d23513a0828"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAÇA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="0" width="100" height="20" uuid="7b88c404-4eef-4721-816b-30919cf5e598"/>
+				<textFieldExpression><![CDATA[$F{animal_RACA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="404" y="0" width="39" height="20" uuid="2acb5b88-ab9c-44b1-8d0b-874c7e5394ca"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="0" width="100" height="20" uuid="cc442a5b-5355-4f3b-bc54-861b4853821a"/>
+				<textFieldExpression><![CDATA[$F{animal_SEXO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="33" height="20" uuid="eaacc4b5-5b26-4a78-80e0-557749471d68"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PESO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="20" width="100" height="20" uuid="7b5ce2cd-cc64-47c1-b294-29c8838f0450"/>
+				<textFieldExpression><![CDATA[$F{animal_PESO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="47" width="555" height="1" uuid="ec42c120-8636-420b-8f85-e9c23bef278b"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="34" width="555" height="20" uuid="f5667748-b71d-4a69-bdf3-4ef37241b7ba"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="571de4ee-fb3e-44f5-b924-9877e1f4c736"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

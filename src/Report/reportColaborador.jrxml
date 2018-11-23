@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4bc8e163-a32a-4aef-a8e3-3480401189c7">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     colaborador.`ID` AS colaborador_ID,
+     colaborador.`CPF` AS colaborador_CPF,
+     colaborador.`DATA_NASCIMENTO` AS colaborador_DATA_NASCIMENTO,
+     colaborador.`NOME` AS colaborador_NOME,
+     colaborador.`SEXO` AS colaborador_SEXO,
+     colaborador.`TELEFONE` AS colaborador_TELEFONE
+FROM
+     `colaborador` colaborador]]>
+	</queryString>
+	<field name="colaborador_ID" class="java.lang.Integer"/>
+	<field name="colaborador_CPF" class="java.lang.String"/>
+	<field name="colaborador_DATA_NASCIMENTO" class="java.sql.Date"/>
+	<field name="colaborador_NOME" class="java.lang.String"/>
+	<field name="colaborador_SEXO" class="java.lang.String"/>
+	<field name="colaborador_TELEFONE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="17455ebe-0ec7-4294-b7f5-e26948f1c0c4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE COLABORADORES]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="478" y="20" width="100" height="20" uuid="d76cf9f1-35c3-42b2-9c18-d6bb483d4f1e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="-6" width="35" height="46" uuid="bcf209e6-b045-4c1a-847a-1300760a1236"/>
+				<imageExpression><![CDATA["C:\\Users\\gusta\\OneDrive\\Área de Trabalho\\Projeto frigorifico JPA\\FrigorificoJPA\\src\\Imagem\\Sem título.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="d594fbd8-eca0-47cd-b0e0-f105c318ff4c"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="15" width="16" height="20" uuid="04fed367-1090-4855-8459-4e2d3323758d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="15" width="100" height="20" uuid="8d97983a-32d3-4df8-8628-824c58a9333e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="15" width="100" height="20" uuid="2bd2d8ab-c332-41ee-89ee-62e7c95da9b1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="15" width="130" height="20" uuid="3a39d677-0d68-4b54-9bef-bcdd21332627"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA DE NASCIMEMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="15" width="100" height="20" uuid="3ea03535-8300-4739-ba8f-a459d492edc0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="87" height="20" uuid="c8db0268-cfea-458d-a7b5-565a1b67bbe1"/>
+				<textFieldExpression><![CDATA[$F{colaborador_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="0" width="113" height="20" uuid="453298a5-7110-4625-814b-c7205b023064"/>
+				<textFieldExpression><![CDATA[$F{colaborador_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="111" height="20" uuid="b53e328c-28ea-49e1-8ae5-9484a828c261"/>
+				<textFieldExpression><![CDATA[$F{colaborador_SEXO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="178" height="20" uuid="b0d0cab5-94fe-4cdd-a602-cbd1141415d0"/>
+				<textFieldExpression><![CDATA[$F{colaborador_DATA_NASCIMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="0" width="100" height="20" uuid="a3c0ed13-ea34-48aa-9b33-705483750b37"/>
+				<textFieldExpression><![CDATA[$F{colaborador_CPF}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="29" width="555" height="1" uuid="2b863860-ee89-4b9c-aa5e-e4c99b7817e3"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="d7db6ee7-5e7f-4478-a66f-ae5e71b65ed7"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="34" width="555" height="20" uuid="ce82d99d-bc25-4cb0-892f-8375e686df7d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="73f041a3-ef6f-4659-9b48-0f0e32e1454e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="3ec3f128-dcf5-4e9f-a6f3-0dbe26ca1a3e"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>
